@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import Character from '../../interfaces/character';
 import { CommonModule } from '@angular/common';
+import { Character } from '../../interfaces/Character';
+
 
 @Component({
   selector: 'app-character',
@@ -10,5 +11,5 @@ import { CommonModule } from '@angular/common';
   styleUrl: './character.component.css',
 })
 export class CharacterComponent {
-  @Input() data: Character[] = [];
+  @Input() character: Character[] = [];
 }

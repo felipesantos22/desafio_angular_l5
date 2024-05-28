@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterComponent } from '../character/character.component';
 import { ApiService } from '../../services/api.service';
-import Character from '../../interfaces/character';
+import { Character } from '../../interfaces/Character';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +11,18 @@ import Character from '../../interfaces/character';
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
-  data: Character[] = [];
+  character: Character[] = [];
 
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
+    this.get();
+  }
+
+  get(): void {
     this.apiService.getCharacters().subscribe((data: Character[]) => {
-      this.data = data;
+      this.character = data;
+      console.log(data);
     });
   }
 }
