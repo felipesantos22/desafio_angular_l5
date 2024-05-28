@@ -3,7 +3,7 @@
     <img src="{{ characters.image }}" class="card-img-top" alt="..." />
     <div class="card-body">
       <h5 class="card-title">{{ characters.name }}</h5>
-      <p class="card-text">
+      <b class="card-text">
         <span
           [ngClass]="{
             'text-success': characters.status === 'Alive',
@@ -14,7 +14,7 @@
           {{ characters.status }}
         </span>
         - {{ characters.species }}
-      </p>
+      </b>
       <p class="card-text">
         Last known location: {{ characters.location.name }}
       </p>
