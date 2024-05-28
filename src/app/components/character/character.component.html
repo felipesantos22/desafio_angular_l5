@@ -4,9 +4,20 @@
     <div class="card-body">
       <h5 class="card-title">{{ characters.name }}</h5>
       <p class="card-text">
-        {{ characters.status }}
+        <span
+          [ngClass]="{
+            'text-success': characters.status === 'Alive',
+            'text-danger': characters.status === 'Dead',
+            'text-warning': characters.status === 'unknown'
+          }"
+        >
+          {{ characters.status }}
+        </span>
+        - {{ characters.species }}
       </p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+      <p class="card-text">
+        Last known location: {{ characters.location.name }}
+      </p>
     </div>
   </div>
 </div>
