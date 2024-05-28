@@ -16,8 +16,8 @@ export class ApiService {
     return this.http.get<Character[]>(url);
   }
 
-  getDetails(id: Number) {
-    const url = `${this.apiUrl}/${id}`;
+  getDetails(id: number): Observable<Character> {
+    const url = `${this.apiUrl}${id}`;
     return this.http.get<Character>(url);
   }
 
