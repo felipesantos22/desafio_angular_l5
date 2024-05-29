@@ -1,3 +1,9 @@
+<div class="btn">
+  <button class="btn btn-dark" (click)="filterAlive()">Alive</button>
+  <button class="btn btn-dark" (click)="filterDead()">Dead</button>
+  <button class="btn btn-dark" (click)="resetFilter()">Reset</button>
+  <button class="btn btn-dark" (click)="filterUnknown()">Unknown</button>
+</div>
 <div class="container">
   <div class="card" style="width: 14rem" *ngFor="let characters of character">
     <img src="{{ characters.image }}" class="card-img-top" alt="..." />
