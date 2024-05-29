@@ -1,3 +1,8 @@
+.select{
+  padding: 20px;
+  width: 200px;
+}
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -16,4 +21,9 @@ a:hover {
 
 a {
   color: black;
+}
+
+input{
+  margin: 30px;
+  width: 200px;
 }

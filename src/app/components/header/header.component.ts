@@ -28,5 +28,6 @@ export class HeaderComponent implements OnInit {
         queryParams: { q: value },
       });
     }
+    
   }
 }
