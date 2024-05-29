@@ -1,9 +1,16 @@
-<div *ngIf="character">
-  <h1>{{ character.name }}</h1>
-  <img [src]="character.image" alt="{{ character.name }}" />
-  <p>Status: {{ character.status }}</p>
-  <p>Species: {{ character.species }}</p>
-  <p>Gender: {{ character.gender }}</p>
-  <p>Origin: {{ character.origin.name }}</p>
-  <p>Location: {{ character.location.name }}</p>
+<div class="container">
+  <div class="card" style="width: 18rem" *ngIf="character">
+    <img [src]="character.image" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ character.name }}</h5>
+      <p class="card-text">
+        {{ character.status }}
+      </p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">{{ character.location.name }}</li>
+      <li class="list-group-item">{{ character.species }}</li>
+      <li class="list-group-item">{{ character.type }}</li>
+    </ul>
+  </div>
 </div>
