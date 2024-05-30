@@ -25,7 +25,7 @@ export class CharacterComponent implements OnInit {
   }
 
   loadCharacters(): void {
-    this.loading = true;
+    // this.loading = true;
     this.apiService.getCharacters(this.currentPage).subscribe((data: Character[]) => {
       this.character = [...this.character, ...data];
       this.allCharacter = [...this.character];
