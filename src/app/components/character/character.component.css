@@ -1,7 +1,12 @@
-/* .select {
-  padding: 20px;
-  width: 200px;
-} */
+.input{
+  margin-top: 20px;
+}
+
+.input input {
+  display: block;
+  margin: 0 auto;
+  width: 25%;
+}
 
 .container {
   display: flex;

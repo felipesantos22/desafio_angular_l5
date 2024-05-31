@@ -15,19 +15,10 @@ import {
   styleUrl: './header.component.css',
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor() {}
 
   searchValue: string = '';
 
   ngOnInit(): void {}
 
-  onSearch(value: string) {
-    console.log(value);
-    if (value && value.length > 3) {
-      this.router.navigate(['/'], {
-        queryParams: { q: value },
-      });
-    }
-    
-  }
 }

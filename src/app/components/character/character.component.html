@@ -1,9 +1,25 @@
-<div class="btn">
-  <button class="btn btn-dark" (click)="filterAlive()">Alive</button>
-  <button class="btn btn-dark" (click)="filterDead()">Dead</button>
-  <button class="btn btn-dark" (click)="resetFilter()">Reset</button>
-  <button class="btn btn-dark" (click)="filterUnknown()">Unknown</button>
+<div class="input">
+  <input
+    class="form-control"
+    id="name"
+    placeholder="Type to search..."
+    type="text"
+    placeholder="Search..."
+    [(ngModel)]="nameFilter"
+    (input)="filterCharacters()"
+  />
 </div>
+
+<div class="filter">
+  <div class="btn">
+    <button class="btn btn-dark" (click)="filterAlive()">Alive</button>
+    <button class="btn btn-dark" (click)="filterDead()">Dead</button>
+    <button class="btn btn-dark" (click)="resetFilter()">Reset</button>
+    <button class="btn btn-dark" (click)="filterUnknown()">Unknown</button>
+  </div>
+</div>
+
+<!-- Scroll infinit -->
 <div
   class="container"
   infiniteScroll
@@ -12,7 +28,11 @@
   [infiniteScrollThrottle]="150"
   (scrolled)="onScroll()"
 >
-  <div class="card" style="width: 14rem" *ngFor="let characters of character">
+  <div
+    class="card"
+    style="width: 14rem"
+    *ngFor="let characters of filteredCharacters"
+  >
     <img src="{{ characters.image }}" class="card-img-top" alt="..." />
     <div class="card-body">
       <h5 class="card-title">
