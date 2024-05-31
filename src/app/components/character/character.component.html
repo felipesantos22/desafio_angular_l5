@@ -7,8 +7,9 @@
 <div
   class="container"
   infiniteScroll
-  [infiniteScrollDistance]="50"
-  [infiniteScrollThrottle]="2000"
+  [infiniteScrollDistance]="2"
+  [infiniteScrollUpDistance]="1.5"
+  [infiniteScrollThrottle]="150"
   (scrolled)="onScroll()"
 >
   <div class="card" style="width: 14rem" *ngFor="let characters of character">

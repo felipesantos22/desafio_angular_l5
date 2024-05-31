@@ -17,6 +17,7 @@ export class CharacterComponent implements OnInit {
   allCharacter: Character[] = [];
   currentPage: number = 1;
   loading: boolean = false;
+  currentFilter: string = 'all';
 
   constructor(private apiService: ApiService) {}
 
@@ -25,12 +26,14 @@ export class CharacterComponent implements OnInit {
   }
 
   loadCharacters(): void {
-    // this.loading = true;
-    this.apiService.getCharacters(this.currentPage).subscribe((data: Character[]) => {
-      this.character = [...this.character, ...data];
-      this.allCharacter = [...this.character];
-      this.loading = false;
-    });
+    this.loading = true;
+    this.apiService
+      .getCharacters(this.currentPage)
+      .subscribe((data: Character[]) => {
+        this.allCharacter = [...this.allCharacter, ...data];
+        this.applyFilter();
+        this.loading = false;
+      });
   }
 
   onScroll(): void {
@@ -40,19 +43,42 @@ export class CharacterComponent implements OnInit {
     }
   }
 
+  applyFilter(): void {
+    switch (this.currentFilter) {
+      case 'alive':
+        this.character = this.allCharacter.filter((l) => l.status === 'Alive');
+        break;
+      case 'dead':
+        this.character = this.allCharacter.filter((l) => l.status === 'Dead');
+        break;
+      case 'unknown':
+        this.character = this.allCharacter.filter(
+          (l) => l.status === 'unknown'
+        );
+        break;
+      default:
+        this.character = [...this.allCharacter];
+        break;
+    }
+  }
+
   filterAlive(): void {
-    this.character = this.allCharacter.filter((l) => l.status === 'Alive');
+    this.currentFilter = 'alive';
+    this.applyFilter();
   }
 
   filterDead(): void {
-    this.character = this.allCharacter.filter((l) => l.status === 'Dead');
+    this.currentFilter = 'dead';
+    this.applyFilter();
   }
 
   filterUnknown(): void {
-    this.character = this.allCharacter.filter((l) => l.status === 'unknown');
+    this.currentFilter = 'unknown';
+    this.applyFilter();
   }
 
   resetFilter(): void {
-    this.character = [...this.allCharacter];
+    this.currentFilter = 'all';
+    this.applyFilter();
   }
 }
