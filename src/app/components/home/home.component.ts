@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterComponent } from '../character/character.component';
-import { ApiService } from '../../services/api.service';
+import { ApiServiceCharacter } from '../../services/api.serviceCharacter';
 import { Character } from '../../interfaces/Character';
 
 @Component({
@@ -13,14 +13,14 @@ import { Character } from '../../interfaces/Character';
 export class HomeComponent implements OnInit {
   character: Character[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiServiceCharacter: ApiServiceCharacter) {}
 
   ngOnInit(): void {
     this.get();
   }
 
   get(): void {
-    this.apiService.getCharacters().subscribe((data: Character[]) => {
+    this.apiServiceCharacter.getCharacters().subscribe((data: Character[]) => {
       this.character = data;
     });
   }

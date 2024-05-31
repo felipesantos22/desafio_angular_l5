@@ -1,27 +1,27 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { Character } from '../interfaces/Character';
+import { Location } from '../interfaces/Location';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ApiService {
-  private apiUrl = 'https://rickandmortyapi.com/api/character/';
+export class ApiLocationService {
+  private apiUrl = 'https://rickandmortyapi.com/api/location/';
 
   constructor(private http: HttpClient) {}
 
-  searchCharacters(query = '', page = 1): Observable<Character[]> {
+  searchLocation(query = '', page = 1): Observable<Location[]> {
     const url = `${this.apiUrl}?name=${query}&page=${page}`;
     return this.http.get<any>(url).pipe(map((response) => response.results));
   }
 
-  getDetails(id: number): Observable<Character> {
+  getDetails(id: number): Observable<Location> {
     const url = `${this.apiUrl}${id}`;
-    return this.http.get<Character>(url);
+    return this.http.get<Location>(url);
   }
 
-  getCharacters(page: number = 1): Observable<Character[]> {
+  getLocation(page: number = 1): Observable<Location[]> {
     const url = `${this.apiUrl}?page=${page}`;
     return this.http.get<any>(url).pipe(map((response) => response.results));
   }

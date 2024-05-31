@@ -2,9 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Character } from '../../interfaces/Character';
 import { RouterLink } from '@angular/router';
-import { ApiService } from '../../services/api.service';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule } from '@angular/forms';
+import { ApiServiceCharacter } from '../../services/api.serviceCharacter';
 
 @Component({
   selector: 'app-character',
@@ -24,7 +24,7 @@ export class CharacterComponent implements OnInit {
   nameFilter: string = '';
   filteredCharacters: Character[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiServiceCharacter: ApiServiceCharacter) {}
 
   ngOnInit(): void {
     this.loadCharacters();
@@ -32,7 +32,7 @@ export class CharacterComponent implements OnInit {
 
   loadCharacters(): void {
     this.loading = true;
-    this.apiService
+    this.apiServiceCharacter
       .getCharacters(this.currentPage)
       .subscribe((data: Character[]) => {
         this.allCharacter = [...this.allCharacter, ...data];
