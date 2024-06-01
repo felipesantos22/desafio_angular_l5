@@ -11,7 +11,7 @@ export class ApiServiceEpisode {
 
   constructor(private http: HttpClient) {}
 
-  searchLocation(query = '', page = 1): Observable<Episode[]> {
+  searchEpisode(query = '', page = 1): Observable<Episode[]> {
     const url = `${this.apiUrl}?name=${query}&page=${page}`;
     return this.http.get<any>(url).pipe(map((response) => response.results));
   }
@@ -21,7 +21,7 @@ export class ApiServiceEpisode {
     return this.http.get<Episode>(url);
   }
 
-  getLocation(page: number = 1): Observable<Episode[]> {
+  getEpisode(page: number = 1): Observable<Episode[]> {
     const url = `${this.apiUrl}?page=${page}`;
     return this.http.get<any>(url).pipe(map((response) => response.results));
   }

@@ -4,7 +4,7 @@ import { Character } from '../../interfaces/Character';
 import { RouterLink } from '@angular/router';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule } from '@angular/forms';
-import { ApiServiceCharacter } from '../../services/api.serviceCharacter';
+import { ApiServiceCharacter } from '../../services/api.service.character';
 
 @Component({
   selector: 'app-character',

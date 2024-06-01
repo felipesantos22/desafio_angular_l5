@@ -1,7 +1,19 @@
+
+<div class="input">
+  <input
+    class="form-control"
+    id="name"
+    placeholder="Type to search..."
+    type="text"
+    placeholder="Search..."
+    (keyup)="onSearch($event)"
+  />
+</div>
+
 <div class="container">
   <div
     class="row row-cols-1 row-cols-md-2 g-4"
-    *ngFor="let episodes of episode"
+    *ngFor="let episodes of filteredEpisodes"
   >
     <div class="col">
       <div class="card">

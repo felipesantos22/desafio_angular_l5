@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CharacterComponent } from '../character/character.component';
-import { ApiServiceCharacter } from '../../services/api.serviceCharacter';
 import { Character } from '../../interfaces/Character';
+import { ApiServiceCharacter } from '../../services/api.service.character';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +13,7 @@ import { Character } from '../../interfaces/Character';
 export class HomeComponent implements OnInit {
   character: Character[] = [];
 
-  constructor(private apiServiceCharacter: ApiServiceCharacter) {}
+  constructor(private apiServiceCharacter: ApiServiceCharacter ) {}
 
   ngOnInit(): void {
     this.get();

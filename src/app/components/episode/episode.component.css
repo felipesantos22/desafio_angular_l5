@@ -1,11 +1,20 @@
+.input {
+  margin-top: 20px;
+}
+
+.input input {
+  display: block;
+  margin: 0 auto;
+  width: 25%;
+}
+
 .card {
-    margin: 30px;
-    width: 300px;
-  }
-  
-  .container{
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-  }
-  
+  margin: 30px;
+  width: 300px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

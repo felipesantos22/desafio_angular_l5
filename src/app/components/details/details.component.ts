@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { ApiServiceCharacter } from '../../services/api.serviceCharacter';
+import { ApiServiceCharacter } from '../../services/api.service.character';
 import { Character } from '../../interfaces/Character';
 
 @Component({
