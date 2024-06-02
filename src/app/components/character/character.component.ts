@@ -111,4 +111,11 @@ export class CharacterComponent implements OnInit {
       this.filteredCharacters = this.character;
     }
   }
+
+  onStatusChange(event: any): void {
+    const status = event.target.value;
+    this.currentFilter = status;
+    this.applyFilter();
+  }
+  
 }

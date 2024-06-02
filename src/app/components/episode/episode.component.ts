@@ -68,4 +68,11 @@ export class EpisodeComponent implements OnInit {
       this.loadEpisodes();
     }
   }
+
+  //   onSearch(event: KeyboardEvent): void {
+  //     const query = (event.target as HTMLInputElement).value.toLowerCase();
+  //     this.filteredEpisodes = this.episode.filter((ep) =>
+  //       ep.name.toLowerCase().includes(query)
+  //     );
+  //   }
 }

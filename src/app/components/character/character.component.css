@@ -2,6 +2,13 @@
   margin-top: 20px;
 }
 
+.select{
+  margin-top: 20px;
+  display: block;
+  margin: 0 auto;
+  width: 25%;
+}
+
 .input input {
   display: block;
   margin: 0 auto;
@@ -30,5 +37,4 @@ a {
   display: flex;
   justify-content: center;
   margin: 10px;
-  border-radius: 20%;
 }
