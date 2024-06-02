@@ -57,24 +57,25 @@ export class CharacterComponent implements OnInit {
   }
 
   applyFilter(): void {
-    switch (this.currentFilter) {
-      case 'alive':
-        this.character = this.allCharacter.filter((l) => l.status === 'Alive');
-        break;
-      case 'dead':
-        this.character = this.allCharacter.filter((l) => l.status === 'Dead');
-        break;
-      case 'unknown':
-        this.character = this.allCharacter.filter(
-          (l) => l.status === 'unknown'
-        );
-        break;
-      default:
-        this.character = [...this.allCharacter];
-        break;
+    let filtered = [...this.allCharacter];
+
+    // Aplica o filtro de status
+    if (this.currentFilter !== 'all') {
+      filtered = filtered.filter(
+        (character) =>
+          character.status.toLowerCase() === this.currentFilter.toLowerCase()
+      );
     }
-    // Posso apagar aqui, não vai interferir no filtros acima 31/05.
-    this.filterCharacters();
+
+    // Aplica o filtro de nome
+    if (this.nameFilter.length >= 1) {
+      filtered = filtered.filter((character) =>
+        character.name.toLowerCase().includes(this.nameFilter.toLowerCase())
+      );
+    }
+
+    // Atualiza a lista de personagens filtrados
+    this.filteredCharacters = filtered;
   }
 
   filterAlive(): void {
