@@ -28,6 +28,14 @@ export class CharacterComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCharacters();
+    //Buscar dados no local storage
+    if (typeof localStorage !== 'undefined') {
+      const savedNameFilter = localStorage.getItem('auth');
+      if (savedNameFilter) {
+        this.nameFilter = savedNameFilter;
+        this.filterCharacters();
+      }
+    }
   }
 
   loadCharacters(): void {
@@ -90,17 +98,17 @@ export class CharacterComponent implements OnInit {
   }
 
   filterCharacters(): void {
-    if (this.nameFilter.length >= 3) {
+    // Salvando no local storage
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('auth', this.nameFilter);
+    }
+
+    if (this.nameFilter.length >= 1) {
       this.filteredCharacters = this.allCharacter.filter((l) =>
         l.name.toLowerCase().includes(this.nameFilter.toLowerCase())
       );
-      console.log('Filtered characters:', this.filteredCharacters);
     } else {
       this.filteredCharacters = this.character;
-      console.log(
-        'Filter reset, displaying all characters:',
-        this.filteredCharacters
-      );
     }
   }
 }

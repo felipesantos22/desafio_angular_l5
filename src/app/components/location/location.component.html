@@ -9,7 +9,13 @@
   />
 </div>
 
-<div class="container">
+<div
+  class="container"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+>
   <div
     class="row row-cols-1 row-cols-md-2 g-4"
     *ngFor="let locations of filteredLocations"
@@ -22,12 +28,12 @@
           alt="..."
         />
         <div class="card-body">
-          <h5 class="card-title">{{locations.name}}</h5>
+          <h5 class="card-title">{{ locations.name }}</h5>
           <p class="card-text">
-            {{locations.dimension}}
+            {{ locations.dimension }}
           </p>
           <p class="card-text">
-            {{locations.type}}
+            {{ locations.type }}
           </p>
         </div>
       </div>
