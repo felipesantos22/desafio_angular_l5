@@ -30,7 +30,7 @@ export class CharacterComponent implements OnInit {
     this.loadCharacters();
     //Buscar dados no local storage
     if (typeof localStorage !== 'undefined') {
-      const savedNameFilter = localStorage.getItem('auth');
+      const savedNameFilter = localStorage.getItem('characterSearchQuery');
       if (savedNameFilter) {
         this.nameFilter = savedNameFilter;
         this.filterCharacters();
@@ -100,7 +100,7 @@ export class CharacterComponent implements OnInit {
   filterCharacters(): void {
     // Salvando no local storage
     if (typeof localStorage !== 'undefined') {
-      localStorage.setItem('auth', this.nameFilter);
+      localStorage.setItem('characterSearchQuery', this.nameFilter);
     }
 
     if (this.nameFilter.length >= 1) {

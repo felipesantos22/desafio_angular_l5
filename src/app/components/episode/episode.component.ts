@@ -23,6 +23,13 @@ export class EpisodeComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadEpisodes();
+
+    if (typeof localStorage !== 'undefined') {
+      const savedSearchQuery = localStorage.getItem('episodeSearchQuery');
+      if (savedSearchQuery) {
+        this.searchQuery = savedSearchQuery;
+      }
+    }
   }
 
   loadEpisodes(): void {
@@ -39,6 +46,10 @@ export class EpisodeComponent implements OnInit {
   onSearch(event: KeyboardEvent): void {
     this.searchQuery = (event.target as HTMLInputElement).value.toLowerCase();
     this.applyFilter();
+    // Save to local storage 02/05
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('episodeSearchQuery', this.searchQuery);
+    }
   }
 
   applyFilter(): void {
