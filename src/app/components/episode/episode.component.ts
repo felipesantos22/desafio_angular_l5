@@ -17,35 +17,44 @@ export class EpisodeComponent implements OnInit {
   filteredEpisodes: Episode[] = [];
   currentPage: number = 1;
   loading: boolean = false;
+  searchQuery: string = '';
 
   constructor(private apiServiceEpisode: ApiServiceEpisode) {}
 
   ngOnInit(): void {
-    this.get();
+    this.loadEpisodes();
   }
 
-  get(): void {
+  loadEpisodes(): void {
     this.loading = true;
     this.apiServiceEpisode
       .getEpisode(this.currentPage)
       .subscribe((data: Episode[]) => {
         this.episode = [...this.episode, ...data];
-        this.filteredEpisodes = this.episode;
+        this.applyFilter();
         this.loading = false;
       });
   }
 
   onSearch(event: KeyboardEvent): void {
-    const query = (event.target as HTMLInputElement).value.toLowerCase();
-    this.filteredEpisodes = this.episode.filter((ep) =>
-      ep.name.toLowerCase().includes(query)
-    );
+    this.searchQuery = (event.target as HTMLInputElement).value.toLowerCase();
+    this.applyFilter();
+  }
+
+  applyFilter(): void {
+    if (this.searchQuery.length >= 1) {
+      this.filteredEpisodes = this.episode.filter((loc) =>
+        loc.name.toLowerCase().includes(this.searchQuery)
+      );
+    } else {
+      this.filteredEpisodes = this.episode;
+    }
   }
 
   onScroll(): void {
     if (!this.loading) {
       this.currentPage++;
-      this.get();
+      this.loadEpisodes();
     }
   }
 }
