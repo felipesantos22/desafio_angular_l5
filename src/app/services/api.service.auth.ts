@@ -22,9 +22,9 @@ export class AuthService {
     return this.currentUserSubject.value;
   }
 
-  login(username: string, password: string) {
+  login(email: string, password: string) {
     return this.http
-      .post<any>(`http://127.0.0.1:8000/api/auth/login`, { username, password })
+      .post<any>(`http://127.0.0.1:8000/api/auth/login`, { email, password })
       .pipe(
         map((user) => {
           // Login bem-sucedido se houver um token JWT na resposta
@@ -46,6 +46,6 @@ export class AuthService {
       localStorage.removeItem('currentUser');
     }
     this.currentUserSubject.next(null);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 }

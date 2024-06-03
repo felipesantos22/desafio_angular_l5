@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from 'express';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/api.service.auth';
 import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Component({

@@ -6,7 +6,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/api.service.auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -40,10 +40,10 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(email, password).subscribe(
       (data) => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/']);
       },
       (error) => {
-        this.errorMessage = 'Credenciais inválidas';
+        this.errorMessage = 'Email ou Senha invalidos!';
       }
     );
   }
