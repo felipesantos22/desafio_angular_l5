@@ -27,14 +27,12 @@ export class AuthService {
       .post<any>(`http://127.0.0.1:8000/api/auth/login`, { email, password })
       .pipe(
         map((user) => {
-          // Login bem-sucedido se houver um token JWT na resposta
           if (user && user.token) {
-            // Armazenar detalhes do usuário e o token no local storage
             if (typeof localStorage !== 'undefined') {
               localStorage.setItem('currentUser', JSON.stringify(user));
+              localStorage.setItem('userName', user.name);
             }
             this.currentUserSubject.next(user);
-            console.log(user);
           }
           return user;
         })

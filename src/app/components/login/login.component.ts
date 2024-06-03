@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(email, password).subscribe(
       (data) => {
         this.router.navigate(['/']);
+        console.log('Login realizado com sucesso', this.loginForm.value);
       },
       (error) => {
         this.errorMessage = 'Email ou Senha invalidos!';
@@ -48,6 +49,7 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  // Componente de teste para saber se estou recebendo os dados correto do input
   // login() {
   //   console.log('Login realizado com sucesso', this.loginForm.value);
   // }
