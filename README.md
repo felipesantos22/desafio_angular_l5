@@ -1,27 +1,49 @@
-# RickyMartin
+# Rick & Morty SPA
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+Esta é uma Single Page Application (SPA) desenvolvida utilizando Angular 2+ e consumindo a API Rick & Morty.
 
-## Development server
+## Visão Geral
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Esta aplicação foi desenvolvida como parte de um desafio técnico e segue o modelo de dashboard. Ela permite aos usuários listar e visualizar detalhes de personagens, locais e episódios da série animada Rick & Morty.
 
-## Code scaffolding
+A aplicação apresenta as seguintes funcionalidades:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Listagem de personagens, locais e episódios.
+- Detalhes de cada item da lista.
+- Paginação na listagem.
+- Barra de busca global que filtra os resultados da listagem ativa.
+- Opção de login, perfil e logout (opcional) - Em desenvolvimento
 
-## Build
+## Tecnologias Utilizadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular 17: Utilizado como framework principal para desenvolvimento da aplicação.
+- Bootstrap: Utilizado para estilização e layout responsivo.
+- TypeScript: Utilizado para tipagem estática e aumento da segurança do código.
 
-## Running unit tests
+## Como Executar o Projeto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone este repositório em sua máquina local:
 
-## Running end-to-end tests
+       git clone https://github.com/seu-usuario/rick-morty-spa.git
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Instale as dependências do projeto:
 
-## Further help
+       cd rick-morty-spa
+       npm install
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+3. Execute o servidor de desenvolvimento:
+
+       ng serve
+
+4. Acesse a aplicação em seu navegador através do seguinte endereço:
+
+       http://localhost:4200
+
+## Estrutura do Projeto
+
+A estrutura do projeto é organizada de acordo com as melhores práticas do Angular, utilizando módulos, componentes e serviços para modularização e reutilização de código.
+
+## Documentação
+
+A documentação do código está disponível nos próprios arquivos do projeto, com comentários explicativos e claros para facilitar a compreensão do funcionamento e da estrutura da aplicação.
+
