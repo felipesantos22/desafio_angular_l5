@@ -24,7 +24,7 @@ A aplicação apresenta as seguintes funcionalidades:
 
 1. Clone este repositório em sua máquina local:
 
-       git clone https://github.com/seu-usuario/rick-morty-spa.git
+       git clone https://github.com/felipesantos22/desafio_angular_l5.git
 
 2. Instale as dependências do projeto:
 
