@@ -28,7 +28,7 @@ A aplicação apresenta as seguintes funcionalidades:
 
 2. Instale as dependências do projeto:
 
-       cd rick-morty-spa
+       cd desafio_angular_l5
        npm install
 
 3. Execute o servidor de desenvolvimento:
