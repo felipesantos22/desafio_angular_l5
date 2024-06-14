@@ -4,11 +4,12 @@ import { Component, OnInit } from '@angular/core';
 import { Episode } from '../../interfaces/Episode';
 import { ApiServiceEpisode } from '../../services/api.service.episode';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-episode',
   standalone: true,
-  imports: [CommonModule, InfiniteScrollModule],
+  imports: [CommonModule, InfiniteScrollModule, RouterLink],
   templateUrl: './episode.component.html',
   styleUrl: './episode.component.css',
 })

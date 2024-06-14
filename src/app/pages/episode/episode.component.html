@@ -29,7 +29,14 @@
           alt="..."
         />
         <div class="card-body">
-          <h5 class="card-title">{{ episodes.name }}</h5>
+          <h5 class="card-title">
+            <a
+              [routerLink]="['/details/episode', episodes.id]"
+              class="text-decoration-none"
+            >
+              {{ episodes.name }}
+            </a>
+          </h5>
           <p class="card-text">
             {{ episodes.air_date }}
           </p>

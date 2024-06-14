@@ -12,13 +12,13 @@ import { Character } from '../../interfaces/Character';
   styleUrl: './details.component.css',
 })
 export class DetailsComponent {
-  character: Character | undefined;
+  character!: Character;
 
   constructor(private route: ActivatedRoute, private apiServiceCharacter: ApiServiceCharacter) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
-      const id = +params.get('id')!;
+      const id = Number(params.get('id'));
       this.apiServiceCharacter.getDetails(id).subscribe((data: Character) => {
         this.character = data;
       });
