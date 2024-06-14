@@ -46,24 +46,30 @@
           >
         </li>
       </ul>
-      <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-        <input
-          type="search"
-          class="form-control form-control-dark"
-          placeholder="Search..."
-          aria-label="Search"
-        />
-      </form> -->
       <div class="text-end">
-        <button
-          type="button"
-          class="btn btn-outline-light me-2"
-          routerLink="/login"
-          routerLinkActive="active"
-        >
-          Login
-        </button>
-        <button type="button" class="btn btn-warning">Sign-up</button>
+        <ng-container *ngIf="currentUserName; else loginBlock">
+          <span class="me-2">Olá, {{ currentUserName }}</span>
+          <button
+            type="button"
+            class="btn btn-outline-light me-2"
+            (click)="logout()"
+          >
+            Logout
+          </button>
+        </ng-container>
+        <ng-template #loginBlock>
+          <button
+            type="button"
+            class="btn btn-outline-light me-2"
+            routerLink="/login"
+            routerLinkActive="active"
+          >
+            Login
+          </button>
+          <button type="button" class="btn btn-warning" (click)="signUp()">
+            Sign-up
+          </button>
+        </ng-template>
       </div>
     </div>
   </div>
