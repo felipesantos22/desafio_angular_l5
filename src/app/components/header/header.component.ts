@@ -6,7 +6,6 @@ import {
   RouterLinkActive,
   RouterOutlet,
 } from '@angular/router';
-import { AuthService } from '../../services/api.service.auth';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -22,22 +21,8 @@ import { CommonModule } from '@angular/common';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   currentUserName: string | null = null;
 
-  constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit() {
-    this.authService.currentUser.subscribe((user) => {
-      this.currentUserName = user?.email || null;
-    });
-  }
-
-  logout() {
-    this.authService.logout();
-  }
-
-  signUp() {
-    this.router.navigate(['/']);
-  }
+  constructor() {}
 }
