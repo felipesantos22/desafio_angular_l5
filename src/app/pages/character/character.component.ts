@@ -14,7 +14,7 @@ import { ApiServiceCharacter } from '../../services/api.service.character';
   styleUrl: './character.component.css',
 })
 export class CharacterComponent implements OnInit {
-  @Input() character: Character[] = [];
+  // @Input() character: Character[] = [];
   allCharacter: Character[] = [];
   currentPage: number = 1;
   loading: boolean = false;
@@ -109,7 +109,7 @@ export class CharacterComponent implements OnInit {
         l.name.toLowerCase().includes(this.nameFilter.toLowerCase())
       );
     } else {
-      this.filteredCharacters = this.character;
+      this.filteredCharacters = this.allCharacter;
     }
   }
 
